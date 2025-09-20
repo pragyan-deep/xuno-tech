@@ -72,7 +72,7 @@ export default function DebugPage() {
 
           <div className="mt-6 p-4 bg-muted rounded-lg">
             <p className="text-sm text-muted-foreground">
-              <strong>Expected:</strong> APPS_SCRIPT_URL_EXISTS should be "YES" and length should be around 90-120 characters
+              <strong>Expected:</strong> APPS_SCRIPT_URL_EXISTS should be &quot;YES&quot; and length should be around 90-120 characters
             </p>
           </div>
 
