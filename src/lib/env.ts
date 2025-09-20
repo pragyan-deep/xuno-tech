@@ -54,11 +54,13 @@ function loadEnvironmentVariables(): EnvironmentVariables {
   
   if (!appsScriptUrl) {
     if (nodeEnv === 'production') {
-      throw new EnvironmentError(
-        'Missing required environment variable: APPS_SCRIPT_URL\n' +
-        'This is required for the contact form to work in production.\n' +
-        'Please set APPS_SCRIPT_URL to your Google Apps Script Web App URL.'
-      )
+      // TEMPORARY: Log for debugging instead of throwing error
+      console.error('⚠️  CRITICAL: APPS_SCRIPT_URL is missing in production!')
+      console.error('⚠️  Contact form will not work until this is configured.')
+      console.error('⚠️  Check Vercel dashboard → Settings → Environment Variables')
+      
+      // Use a placeholder to prevent app crash
+      appsScriptUrl = 'https://script.google.com/macros/s/MISSING_SCRIPT_ID/exec'
     } else {
       // Use placeholder for development
       appsScriptUrl = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
