@@ -1,4 +1,6 @@
-# Xuno Tech - Professional Technology Website
+# Xuno Technologies
+
+<!-- Updated environment variables for contact form -->
 
 A modern, responsive business website built with Next.js 15, TypeScript, and TailwindCSS, featuring advanced scroll animations, dark/light theme support, and comprehensive business content.
 
