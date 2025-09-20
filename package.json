@@ -20,7 +20,7 @@
   "license": "MIT",
   "description": "One-page technology website built with Next.js and TailwindCSS",
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.13",
+    "@tailwindcss/typography": "^0.5.18",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
@@ -33,7 +33,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.13",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
   }
 }

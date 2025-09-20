@@ -1,8 +1,10 @@
+import { getSiteUrl } from './env'
+
 // Site Configuration
 export const SITE_CONFIG = {
   name: 'Xuno Tech',
   description: 'Professional technology services including development, cloud solutions, security, and digital growth services.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url: getSiteUrl(),
   ogImage: '/images/og-image.jpg',
   links: {
     twitter: 'https://twitter.com/xunotech',
@@ -13,9 +15,18 @@ export const SITE_CONFIG = {
 
 // API Configuration
 export const API_CONFIG = {
-  appsScriptUrl: process.env.APPS_SCRIPT_URL!,
   contactEndpoint: '/api/contact',
 }
+
+// Navigation Links
+export const NAVIGATION_LINKS = [
+  { name: 'About', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Technologies', href: '#technologies' },
+  { name: 'Industries', href: '#industries' },
+  { name: 'Contact', href: '#contact' },
+]
 
 // Services Data
 export const SERVICES = [
