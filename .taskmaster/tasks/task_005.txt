@@ -1,0 +1,55 @@
+# Task ID: 5
+# Title: Build Services Section
+# Status: pending
+# Dependencies: 1, 3
+# Priority: medium
+# Description: Create a section showcasing the company's services grouped by categories
+# Details:
+1. Design a grid layout for service categories:
+   - Development
+   - Cloud
+   - Security
+   - Emerging Tech (excluding Blockchain/Game Dev)
+   - Digital Growth
+   - QA & Testing
+   - Support
+2. Create service cards with icons, titles, and brief descriptions
+3. Implement responsive grid that adjusts columns based on screen size
+4. Add hover effects for interactive feel
+5. Implement fade-in animation when scrolled into view using Intersection Observer API or Framer Motion
+6. Ensure consistent styling across both themes
+
+# Test Strategy:
+Test responsive grid layout across all device sizes. Verify fade-in animations trigger correctly on scroll. Test hover effects. Ensure all service categories are displayed correctly. Check theme compatibility.
+
+# Subtasks:
+## 1. Design Service Category Grid Layout [pending]
+### Dependencies: None
+### Description: Create the foundational grid layout structure for the seven service categories with responsive design
+### Details:
+Implement a responsive grid layout using TailwindCSS grid system for the seven service categories (Development, Cloud, Security, Emerging Tech, Digital Growth, QA & Testing, Support). Configure grid-cols utility classes to adjust columns based on screen size (e.g., grid-cols-1 for mobile, grid-cols-2 for tablets, grid-cols-3 for desktop). Set appropriate gap spacing between grid items. Ensure the grid container has proper padding and max-width constraints. Use container queries if supported by the Next.js version being used.
+
+## 2. Create Service Cards with Icons [pending]
+### Dependencies: 5.1
+### Description: Design and implement individual service cards with icons, titles, and descriptions for each service
+### Details:
+Design service cards with consistent dimensions using TailwindCSS. Include appropriate icons for each service category (use React Icons, Heroicons, or similar library compatible with Next.js). Add title text with proper heading hierarchy (h3 or h4). Write concise service descriptions (2-3 sentences each). Ensure text is properly sized and spaced for readability. Apply consistent padding within cards. Use semantic HTML structure for accessibility.
+
+## 3. Implement Interactive Hover Effects [pending]
+### Dependencies: 5.2
+### Description: Add hover animations and interactive effects to service cards for improved user experience
+### Details:
+Implement subtle hover effects using TailwindCSS hover: variants or Framer Motion. Add scale transform effects (e.g., hover:scale-105) with appropriate transition duration. Consider adding subtle shadow changes on hover (hover:shadow-lg). Implement color transitions for text or borders when hovered. Ensure hover effects are consistent across all service cards. Add focus states for keyboard navigation accessibility. Test performance to ensure smooth animations.
+
+## 4. Add Scroll-Triggered Animations [pending]
+### Dependencies: 5.1, 5.2
+### Description: Implement fade-in animations that trigger when service section scrolls into viewport
+### Details:
+Use Intersection Observer API or Framer Motion's motion components to detect when elements enter viewport. Implement fade-in animations with appropriate timing and easing. Consider staggered animations for individual service cards. Add subtle transform animations (slide up/in) in addition to opacity changes. Ensure animations only trigger once per page load. Implement fallbacks for browsers that don't support these features. Consider adding a 'prefers-reduced-motion' media query check for accessibility.
+
+## 5. Ensure Theme Compatibility [pending]
+### Dependencies: 5.2, 5.3
+### Description: Optimize service section styling for both light and dark themes with consistent visual appearance
+### Details:
+Implement theme-specific color variables using TailwindCSS dark: variants. Ensure text remains readable in both themes with appropriate contrast ratios. Adjust card backgrounds, borders, and shadows for each theme. Test icon visibility in both themes (consider using different icon colors if needed). Verify hover effects work well in both themes. Use CSS custom properties or Tailwind theme configuration for consistent color application. Ensure smooth transitions when theme is switched.
+

@@ -1,0 +1,81 @@
+# Task ID: 8
+# Title: Implement Industries Served Section
+# Status: pending
+# Dependencies: 1, 3
+# Priority: medium
+# Description: Create a grid showcasing the industries the company serves with appropriate visuals
+# Details:
+1. Design a responsive grid for industry categories
+2. Include the specified industries:
+   - Healthcare
+   - EdTech
+   - FinTech
+   - E-commerce
+   - Real Estate
+   - Logistics
+   - Entertainment
+3. Create visually appealing cards with industry icon/image and name
+4. Add brief description for each industry (optional)
+5. Implement hover effects for interactivity
+6. Add fade-in animation when scrolled into view
+7. Ensure consistent styling across both themes
+8. Make grid responsive with appropriate breakpoints
+
+# Test Strategy:
+Test responsive grid layout across all device sizes. Verify all industry cards display correctly. Check hover effects. Ensure fade-in animations work on scroll. Test theme compatibility.
+
+# Subtasks:
+## 1. Design responsive grid layout with industry cards [pending]
+### Dependencies: None
+### Description: Create the foundational grid structure for the industries section with responsive breakpoints
+### Details:
+1. Implement a responsive grid using TailwindCSS grid classes (grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4)
+2. Set appropriate gap spacing between cards
+3. Create a reusable IndustryCard component with props for icon, title, and description
+4. Ensure consistent card sizing and alignment
+5. Test layout across all breakpoints (mobile, tablet, desktop)
+
+## 2. Implement industry content and icons [pending]
+### Dependencies: 8.1
+### Description: Add content for all specified industries with appropriate icons and descriptions
+### Details:
+1. Research and select appropriate icons for each industry (Healthcare, EdTech, FinTech, E-commerce, Real Estate, Logistics, Entertainment)
+2. Use React Icons or custom SVGs for industry icons
+3. Write concise descriptions (30-50 words) for each industry highlighting company expertise
+4. Create a data structure (array of objects) to store industry information
+5. Implement mapping function to render IndustryCard components from data
+
+## 3. Add interactive hover effects [pending]
+### Dependencies: 8.1, 8.2
+### Description: Implement hover animations and interactive elements for industry cards
+### Details:
+1. Use TailwindCSS hover classes or Framer Motion for hover effects
+2. Implement subtle scale transformation on hover (transform: scale(1.05))
+3. Add elevation effect with shadow increase on hover
+4. Consider color transitions for background/text on hover
+5. Ensure hover effects are consistent with overall site design
+6. Add focus states for keyboard navigation accessibility
+
+## 4. Implement scroll-triggered animations [pending]
+### Dependencies: 8.1, 8.2, 8.3
+### Description: Add fade-in animations when the industries section scrolls into view
+### Details:
+1. Use Framer Motion's motion components with whileInView prop
+2. Configure staggered animation for cards (each card appears with slight delay)
+3. Set appropriate viewport threshold for animation trigger
+4. Add fallback for users with reduced motion preferences
+5. Optimize animation performance with will-change CSS property
+6. Ensure animations only trigger once per page load
+
+## 5. Ensure theme compatibility and final polish [pending]
+### Dependencies: 8.1, 8.2, 8.3, 8.4
+### Description: Finalize the industries section with proper theme support and code optimization
+### Details:
+1. Test and adjust styling for both light and dark themes
+2. Ensure proper contrast ratios for accessibility in both themes
+3. Optimize component rendering with React.memo or useMemo where appropriate
+4. Add proper aria attributes for accessibility
+5. Document component props and usage
+6. Perform final responsive testing across all breakpoints
+7. Optimize any images used for industry cards
+

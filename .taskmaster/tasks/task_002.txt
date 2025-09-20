@@ -1,0 +1,74 @@
+# Task ID: 2
+# Title: Implement Theme Toggle Functionality
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Create a dark/light theme toggle system using TailwindCSS and Next.js
+# Details:
+1. Set up TailwindCSS dark mode using the 'class' strategy in `tailwind.config.js`
+2. Create a ThemeProvider context component that will:
+   - Store theme state (dark/light)
+   - Provide toggle function
+   - Persist theme preference in localStorage
+   - Check user's system preference on initial load
+3. Create a ThemeToggle button component that uses the ThemeProvider
+4. Modify `_app.tsx` to wrap the application with ThemeProvider
+5. Implement proper CSS variables for theme colors in global CSS
+6. Ensure smooth transition between themes using CSS transitions
+
+# Test Strategy:
+Test theme toggle functionality across different components. Verify theme persistence after page refresh. Test system preference detection. Ensure smooth visual transition between themes.
+
+# Subtasks:
+## 1. Configure TailwindCSS Dark Mode [pending]
+### Dependencies: None
+### Description: Set up TailwindCSS dark mode using the 'class' strategy and implement CSS variables for theme colors
+### Details:
+1. Update tailwind.config.js to use 'class' strategy for dark mode
+2. Define CSS variables for theme colors in globals.css
+3. Create color palette for both light and dark themes
+4. Implement CSS transitions for smooth theme switching
+5. Test configuration with sample components
+
+## 2. Create ThemeProvider Context [pending]
+### Dependencies: 2.1
+### Description: Develop a React context provider to manage theme state and preferences
+### Details:
+1. Create a ThemeContext with React.createContext()
+2. Implement ThemeProvider component with useState for theme state
+3. Add functions to toggle theme and detect system preferences
+4. Implement localStorage persistence for theme preference
+5. Add useEffect to check system preference on initial load
+6. Export useTheme hook for consuming components
+
+## 3. Develop ThemeToggle Component [pending]
+### Dependencies: 2.2
+### Description: Create a reusable button component that toggles between light and dark themes
+### Details:
+1. Design a visually appealing toggle button with sun/moon icons
+2. Use the useTheme hook to access current theme and toggle function
+3. Implement smooth transition animations using CSS or Framer Motion
+4. Add accessibility attributes (aria-label, role)
+5. Ensure proper contrast in both themes
+6. Make component responsive for different screen sizes
+
+## 4. Integrate ThemeProvider with Next.js [pending]
+### Dependencies: 2.2, 2.3
+### Description: Modify Next.js application structure to incorporate the theme system
+### Details:
+1. Update _app.tsx to wrap the application with ThemeProvider
+2. Add logic to prevent theme flashing on initial load
+3. Implement a script to set initial theme based on localStorage or system preference
+4. Add appropriate class to html/body element based on theme
+5. Test integration with Next.js routing system
+
+## 5. Implement Theme-Aware Components [pending]
+### Dependencies: 2.1, 2.2, 2.3, 2.4
+### Description: Update key UI components to properly respond to theme changes
+### Details:
+1. Create a set of theme-aware utility components (Button, Card, etc.)
+2. Implement proper color schemes for both themes
+3. Add theme-specific styling for typography, borders, and shadows
+4. Test components in both themes for proper contrast and readability
+5. Create documentation for theme usage in components
+

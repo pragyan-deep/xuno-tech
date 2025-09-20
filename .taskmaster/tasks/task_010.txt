@@ -1,0 +1,57 @@
+# Task ID: 10
+# Title: Implement Google Sheets Integration
+# Status: pending
+# Dependencies: 1, 9
+# Priority: high
+# Description: Create Next.js API route and Google Apps Script to store contact form submissions in Google Sheets
+# Details:
+1. Create a Google Sheet with columns for Name, Email, Message, and Timestamp
+2. Write Google Apps Script Web App that:
+   - Accepts POST requests with form data
+   - Validates incoming data
+   - Appends data to the Google Sheet
+   - Returns success/error response
+   - Implements CORS for security
+3. Deploy the Apps Script as a web app with appropriate access settings
+4. Create a Next.js API route at `/api/contact` that:
+   - Accepts POST requests from the contact form
+   - Validates form data on the server side
+   - Forwards the request to the Google Apps Script URL
+   - Handles errors and returns appropriate responses
+5. Connect the contact form to this API endpoint
+6. Implement proper error handling and rate limiting
+
+# Test Strategy:
+Test the API route with valid and invalid form data. Verify data is correctly stored in Google Sheets. Test error handling for various scenarios (network issues, validation failures). Check rate limiting functionality. Test end-to-end form submission flow.
+
+# Subtasks:
+## 1. Create and Configure Google Sheet [pending]
+### Dependencies: None
+### Description: Set up a Google Sheet with appropriate columns and prepare it for integration
+### Details:
+Create a new Google Sheet with columns for Name, Email, Message, and Timestamp. Set appropriate data formats for each column. Configure sharing settings to allow the Apps Script to access and modify the sheet. Document the Sheet ID and range information for use in the Apps Script. Create a test record to verify column structure.
+
+## 2. Develop Google Apps Script Web App [pending]
+### Dependencies: 10.1
+### Description: Write and deploy a Google Apps Script that handles form submissions and stores data in the Google Sheet
+### Details:
+Create a new Google Apps Script project connected to the sheet. Implement doPost() function to handle POST requests with JSON data. Add validation logic for required fields (name, email, message). Write function to append validated data to the Google Sheet with current timestamp. Implement proper error handling with meaningful response messages. Set up CORS headers to allow requests only from your domain. Add logging for debugging and monitoring purposes.
+
+## 3. Deploy Apps Script as Web App [pending]
+### Dependencies: 10.2
+### Description: Configure and deploy the Google Apps Script as a secure web service
+### Details:
+Deploy the Apps Script as a web app with 'Execute as: Me' and 'Who has access: Anyone' settings. Save and document the deployment URL for use in the Next.js API. Set up version control for the script to track changes. Configure appropriate execution timeouts and quotas based on expected usage. Test the deployed endpoint using tools like Postman or cURL to ensure it's accessible and functioning correctly.
+
+## 4. Create Next.js API Route [pending]
+### Dependencies: 10.3
+### Description: Implement a server-side API route in Next.js that validates and forwards form submissions to Google Apps Script
+### Details:
+Create a new API route at /api/contact using Next.js API routes. Implement request validation using a library like zod or yup for type safety. Set up environment variables for the Google Apps Script URL. Create a handler function that validates incoming form data, forwards it to the Google Apps Script, and handles the response. Implement proper error handling for network issues, validation failures, and unexpected responses. Add rate limiting using libraries like next-api-rate-limit to prevent abuse.
+
+## 5. Connect Contact Form to API and Test End-to-End Flow [pending]
+### Dependencies: 10.4
+### Description: Integrate the contact form with the API endpoint and perform comprehensive testing
+### Details:
+Update the existing contact form component to submit data to the new /api/contact endpoint. Add client-side form state management to handle loading, success, and error states. Implement user feedback for form submission status (loading indicators, success messages, error notifications). Add client-side validation that complements server-side validation. Test the complete flow from form submission to data storage in Google Sheets. Document the integration process and any configuration details for future reference.
+

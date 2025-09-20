@@ -1,0 +1,53 @@
+# Task ID: 1
+# Title: Project Setup and Scaffolding
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Initialize Next.js project with TailwindCSS and set up the basic project structure
+# Details:
+1. Initialize a Next.js project in the current directory using `npx create-next-app@latest .` with TypeScript
+2. Install and configure TailwindCSS following the official documentation
+3. Set up project directory structure:
+   - `/components` for reusable UI components
+   - `/pages` for Next.js pages
+   - `/styles` for global styles
+   - `/public` for static assets
+   - `/lib` for utility functions
+4. Configure environment variables in `.env.local` for `APPS_SCRIPT_URL`
+5. Set up a basic `_app.tsx` and `_document.tsx`
+6. Initialize Git repository and create initial commit
+
+# Test Strategy:
+Verify that the project builds without errors using `npm run build`. Ensure TailwindCSS is properly configured by testing a basic Tailwind class. Confirm environment variables are properly loaded.
+
+# Subtasks:
+## 1. Initialize Next.js Project with TypeScript [pending]
+### Dependencies: None
+### Description: Set up a new Next.js project with TypeScript support using the latest stable version
+### Details:
+Run `npx create-next-app@latest .` with TypeScript option enabled. Configure tsconfig.json with strict type checking. Ensure the project uses the latest Next.js 14+ features including the App Router. Initialize Git repository with .gitignore for Next.js and create initial commit.
+
+## 2. Install and Configure TailwindCSS [pending]
+### Dependencies: None
+### Description: Add TailwindCSS to the project with proper configuration for the design system
+### Details:
+Install TailwindCSS, PostCSS, and Autoprefixer using npm. Create tailwind.config.js and postcss.config.js files following the official documentation. Set up the base color palette, typography, and spacing scales. Configure dark mode using the 'class' strategy. Add @tailwind directives to global CSS file.
+
+## 3. Set Up Project Directory Structure [pending]
+### Dependencies: None
+### Description: Create and organize the project's folder structure following best practices
+### Details:
+Create the following directories: `/components` for reusable UI components (with subdirectories for layout, ui, etc.), `/pages` for Next.js pages (or `/app` if using App Router), `/styles` for global styles, `/public` for static assets, `/lib` for utility functions, `/hooks` for custom React hooks, and `/types` for TypeScript type definitions.
+
+## 4. Configure Environment Variables [pending]
+### Dependencies: None
+### Description: Set up environment configuration for development and production
+### Details:
+Create `.env.local`, `.env.development`, and `.env.production` files. Add `APPS_SCRIPT_URL` to the environment variables. Create a typed environment variables schema using zod or similar validation library. Document all environment variables in a README file. Add example .env files to the repository.
+
+## 5. Set Up Base Application Files [pending]
+### Dependencies: None
+### Description: Create foundational application files including _app.tsx and _document.tsx
+### Details:
+Create `_app.tsx` with proper layout structure and theme provider integration. Set up `_document.tsx` with HTML metadata, font loading, and SEO basics. If using App Router, create appropriate layout.tsx files. Add global error handling. Configure metadata for SEO. Set up font loading using Next.js font optimization features.
+

@@ -1,0 +1,54 @@
+# Task ID: 9
+# Title: Build Contact Form Section
+# Status: pending
+# Dependencies: 1, 3
+# Priority: high
+# Description: Create a contact form with validation that will send data to Google Sheets
+# Details:
+1. Design a responsive contact form with fields for:
+   - Name (required)
+   - Email (required, with validation)
+   - Message (required)
+   - Submit button
+2. Implement form validation using React state or a form library
+3. Create loading and success/error states for form submission
+4. Style form consistently with the site's matte theme
+5. Ensure form is accessible with proper labels and aria attributes
+6. Add fade-in animation when scrolled into view
+7. Make form responsive for all device sizes
+8. Prepare form to connect with the API endpoint (to be implemented in task 10)
+
+# Test Strategy:
+Test form validation for all fields. Verify responsive layout across device sizes. Test accessibility using keyboard navigation. Ensure form states (loading, success, error) display correctly. Test theme compatibility.
+
+# Subtasks:
+## 1. Design responsive contact form layout [pending]
+### Dependencies: None
+### Description: Create the HTML structure and responsive layout for the contact form with all required fields
+### Details:
+Create a responsive form component with fields for name, email, and message. Implement proper HTML structure using semantic elements. Style the form using TailwindCSS to match the site's matte theme. Ensure the form is responsive across all device sizes using appropriate flex/grid layouts and breakpoints. Include a submit button with appropriate styling.
+
+## 2. Implement form validation and state management [pending]
+### Dependencies: 9.1
+### Description: Add client-side validation for all form fields and manage form state
+### Details:
+Implement form validation using React Hook Form or Formik. Add validation rules for required fields, email format validation, and minimum length requirements. Create React state to track form values, validation errors, and submission status. Implement real-time validation feedback with appropriate error messages. Ensure validation is triggered on blur and on submission.
+
+## 3. Create form submission states and animations [pending]
+### Dependencies: 9.2
+### Description: Implement loading, success, and error states for form submission with appropriate animations
+### Details:
+Create loading state with spinner or progress indicator during form submission. Implement success state with confirmation message after successful submission. Add error state with appropriate error message for failed submissions. Use Framer Motion to implement fade-in animation when the form section scrolls into view. Add subtle transition animations for form state changes.
+
+## 4. Ensure form accessibility and keyboard navigation [pending]
+### Dependencies: 9.1, 9.2
+### Description: Make the form fully accessible with proper ARIA attributes, focus management, and keyboard navigation
+### Details:
+Add proper labels and ARIA attributes to all form elements. Implement focus management for form fields and error messages. Ensure keyboard navigation works correctly throughout the form. Add appropriate tab order for all interactive elements. Implement error announcements for screen readers. Test with various assistive technologies to ensure compatibility.
+
+## 5. Prepare form API integration for Google Sheets [pending]
+### Dependencies: 9.2, 9.3
+### Description: Set up the form submission handler to connect with the Google Sheets API endpoint
+### Details:
+Create a submission handler function that will connect to the Google Sheets API endpoint (to be implemented in task 10). Structure the form data in the format required by the API. Implement proper error handling for API responses. Add appropriate security measures like CSRF protection and rate limiting. Document the API integration requirements for task 10.
+

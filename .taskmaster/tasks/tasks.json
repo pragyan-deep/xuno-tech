@@ -1,0 +1,863 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Project Setup and Scaffolding",
+        "description": "Initialize Next.js project with TailwindCSS and set up the basic project structure",
+        "status": "in-progress",
+        "dependencies": [],
+        "priority": "high",
+        "details": "1. Initialize a Next.js project in the current directory using `npx create-next-app@latest .` with TypeScript\n2. Install and configure TailwindCSS following the official documentation\n3. Set up project directory structure:\n   - `/components` for reusable UI components\n   - `/pages` for Next.js pages\n   - `/styles` for global styles\n   - `/public` for static assets\n   - `/lib` for utility functions\n4. Configure environment variables in `.env.local` for `APPS_SCRIPT_URL`\n5. Set up a basic `_app.tsx` and `_document.tsx`\n6. Initialize Git repository and create initial commit",
+        "testStrategy": "Verify that the project builds without errors using `npm run build`. Ensure TailwindCSS is properly configured by testing a basic Tailwind class. Confirm environment variables are properly loaded.",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize Next.js Project with TypeScript",
+            "description": "Set up a new Next.js project with TypeScript support using the latest stable version",
+            "dependencies": [],
+            "details": "Run `npx create-next-app@latest .` with TypeScript option enabled. Configure tsconfig.json with strict type checking. Ensure the project uses the latest Next.js 14+ features including the App Router. Initialize Git repository with .gitignore for Next.js and create initial commit.\n<info added on 2025-09-20T09:38:17.708Z>\nNext.js 14+ project successfully initialized in current directory with:\n- Next.js 15.5.3 with App Router and TypeScript\n- Proper package.json with all required scripts\n- TypeScript configuration with strict settings\n- Next.js configuration with typedRoutes and image optimization\n- Project builds successfully (npm run build ✅)\n- All dependencies installed and working\n\nThe project structure is ready for TailwindCSS configuration in the next subtask.\n</info added on 2025-09-20T09:38:17.708Z>",
+            "status": "done",
+            "testStrategy": "Verify the project builds without errors using `npm run build`. Check that TypeScript compilation works without errors using `npm run lint`."
+          },
+          {
+            "id": 2,
+            "title": "Install and Configure TailwindCSS",
+            "description": "Add TailwindCSS to the project with proper configuration for the design system",
+            "dependencies": [],
+            "details": "Install TailwindCSS, PostCSS, and Autoprefixer using npm. Create tailwind.config.js and postcss.config.js files following the official documentation. Set up the base color palette, typography, and spacing scales. Configure dark mode using the 'class' strategy. Add @tailwind directives to global CSS file.\n<info added on 2025-09-20T09:39:08.081Z>\nTailwindCSS 4.1.13 has been successfully installed and configured with the following verified working features:\n\n- @tailwindcss/postcss plugin properly configured\n- Dark mode setup with 'class' strategy as specified\n- CSS variables implemented for theming (light/dark modes)\n- Custom animations including fade-in and slide-up effects\n- Utility classes created (section-padding, container-max)\n- Responsive design classes functioning correctly\n- Gradient text effects working as expected\n- Development server confirmed running on http://localhost:3000\n\nThe TailwindCSS configuration is now complete and the project is ready to proceed with component development.\n</info added on 2025-09-20T09:39:08.081Z>",
+            "status": "done",
+            "testStrategy": "Test that Tailwind classes are properly applied by creating a simple component with Tailwind utility classes. Verify that custom theme values are accessible."
+          },
+          {
+            "id": 3,
+            "title": "Set Up Project Directory Structure",
+            "description": "Create and organize the project's folder structure following best practices",
+            "dependencies": [],
+            "details": "Create the following directories: `/components` for reusable UI components (with subdirectories for layout, ui, etc.), `/pages` for Next.js pages (or `/app` if using App Router), `/styles` for global styles, `/public` for static assets, `/lib` for utility functions, `/hooks` for custom React hooks, and `/types` for TypeScript type definitions.",
+            "status": "in-progress",
+            "testStrategy": "Verify all directories are created with appropriate README files explaining their purpose. Ensure the structure follows Next.js best practices for 2024."
+          },
+          {
+            "id": 4,
+            "title": "Configure Environment Variables",
+            "description": "Set up environment configuration for development and production",
+            "dependencies": [],
+            "details": "Create `.env.local`, `.env.development`, and `.env.production` files. Add `APPS_SCRIPT_URL` to the environment variables. Create a typed environment variables schema using zod or similar validation library. Document all environment variables in a README file. Add example .env files to the repository.",
+            "status": "pending",
+            "testStrategy": "Test that environment variables are properly loaded using a simple test component. Verify that TypeScript provides proper typing for environment variables."
+          },
+          {
+            "id": 5,
+            "title": "Set Up Base Application Files",
+            "description": "Create foundational application files including _app.tsx and _document.tsx",
+            "dependencies": [],
+            "details": "Create `_app.tsx` with proper layout structure and theme provider integration. Set up `_document.tsx` with HTML metadata, font loading, and SEO basics. If using App Router, create appropriate layout.tsx files. Add global error handling. Configure metadata for SEO. Set up font loading using Next.js font optimization features.",
+            "status": "pending",
+            "testStrategy": "Verify the application renders correctly with the base configuration. Test that fonts load properly. Check that theme context is properly initialized. Validate HTML structure with Lighthouse or similar tools."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Implement Theme Toggle Functionality",
+        "description": "Create a dark/light theme toggle system using TailwindCSS and Next.js",
+        "details": "1. Set up TailwindCSS dark mode using the 'class' strategy in `tailwind.config.js`\n2. Create a ThemeProvider context component that will:\n   - Store theme state (dark/light)\n   - Provide toggle function\n   - Persist theme preference in localStorage\n   - Check user's system preference on initial load\n3. Create a ThemeToggle button component that uses the ThemeProvider\n4. Modify `_app.tsx` to wrap the application with ThemeProvider\n5. Implement proper CSS variables for theme colors in global CSS\n6. Ensure smooth transition between themes using CSS transitions",
+        "testStrategy": "Test theme toggle functionality across different components. Verify theme persistence after page refresh. Test system preference detection. Ensure smooth visual transition between themes.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configure TailwindCSS Dark Mode",
+            "description": "Set up TailwindCSS dark mode using the 'class' strategy and implement CSS variables for theme colors",
+            "dependencies": [],
+            "details": "1. Update tailwind.config.js to use 'class' strategy for dark mode\n2. Define CSS variables for theme colors in globals.css\n3. Create color palette for both light and dark themes\n4. Implement CSS transitions for smooth theme switching\n5. Test configuration with sample components",
+            "status": "pending",
+            "testStrategy": "Verify dark mode classes are properly applied. Test CSS variables in both themes. Ensure smooth transitions between themes."
+          },
+          {
+            "id": 2,
+            "title": "Create ThemeProvider Context",
+            "description": "Develop a React context provider to manage theme state and preferences",
+            "dependencies": [
+              "2.1"
+            ],
+            "details": "1. Create a ThemeContext with React.createContext()\n2. Implement ThemeProvider component with useState for theme state\n3. Add functions to toggle theme and detect system preferences\n4. Implement localStorage persistence for theme preference\n5. Add useEffect to check system preference on initial load\n6. Export useTheme hook for consuming components",
+            "status": "pending",
+            "testStrategy": "Test theme persistence across page refreshes. Verify system preference detection works correctly. Test theme toggle functionality."
+          },
+          {
+            "id": 3,
+            "title": "Develop ThemeToggle Component",
+            "description": "Create a reusable button component that toggles between light and dark themes",
+            "dependencies": [
+              "2.2"
+            ],
+            "details": "1. Design a visually appealing toggle button with sun/moon icons\n2. Use the useTheme hook to access current theme and toggle function\n3. Implement smooth transition animations using CSS or Framer Motion\n4. Add accessibility attributes (aria-label, role)\n5. Ensure proper contrast in both themes\n6. Make component responsive for different screen sizes",
+            "status": "pending",
+            "testStrategy": "Test toggle functionality in different components. Verify accessibility compliance. Test animations and transitions."
+          },
+          {
+            "id": 4,
+            "title": "Integrate ThemeProvider with Next.js",
+            "description": "Modify Next.js application structure to incorporate the theme system",
+            "dependencies": [
+              "2.2",
+              "2.3"
+            ],
+            "details": "1. Update _app.tsx to wrap the application with ThemeProvider\n2. Add logic to prevent theme flashing on initial load\n3. Implement a script to set initial theme based on localStorage or system preference\n4. Add appropriate class to html/body element based on theme\n5. Test integration with Next.js routing system",
+            "status": "pending",
+            "testStrategy": "Test theme persistence across route changes. Verify no theme flashing occurs on initial load. Test with Next.js SSR/SSG pages."
+          },
+          {
+            "id": 5,
+            "title": "Implement Theme-Aware Components",
+            "description": "Update key UI components to properly respond to theme changes",
+            "dependencies": [
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4"
+            ],
+            "details": "1. Create a set of theme-aware utility components (Button, Card, etc.)\n2. Implement proper color schemes for both themes\n3. Add theme-specific styling for typography, borders, and shadows\n4. Test components in both themes for proper contrast and readability\n5. Create documentation for theme usage in components",
+            "status": "pending",
+            "testStrategy": "Test all components in both light and dark themes. Verify proper contrast ratios for accessibility. Test theme transitions in complex component hierarchies."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Create Responsive Navigation Bar",
+        "description": "Implement a sticky navigation bar with smooth scrolling links that works across all device sizes",
+        "details": "1. Create a Navbar component with:\n   - Company logo/name on the left\n   - Navigation links in the center (Services, Portfolio, Technologies, Industries, Contact)\n   - Theme toggle button on the right\n2. Implement responsive design with hamburger menu for mobile/tablet\n3. Add sticky positioning that activates on scroll\n4. Implement smooth scrolling to sections using the `scroll-behavior: smooth` CSS property and ID-based links\n5. Add active section highlighting based on scroll position using Intersection Observer API\n6. Include subtle animations for menu opening/closing on mobile",
+        "testStrategy": "Test navbar across all breakpoints (mobile, tablet, desktop). Verify smooth scrolling to all sections. Check sticky behavior on scroll. Test hamburger menu functionality on mobile. Verify active section highlighting works correctly.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Navbar Component Structure",
+            "description": "Develop the basic structure of the Navbar component with logo, navigation links, and theme toggle button",
+            "dependencies": [],
+            "details": "Create a responsive Navbar component using Next.js 14+ and TailwindCSS. Position the company logo/name on the left, navigation links (Services, Portfolio, Technologies, Industries, Contact) in the center, and theme toggle button on the right. Ensure proper semantic HTML structure with nav, ul, li elements. Set up initial styling with TailwindCSS utility classes.",
+            "status": "pending",
+            "testStrategy": "Verify component renders correctly with all elements in proper positions. Check initial styling and layout on desktop view."
+          },
+          {
+            "id": 2,
+            "title": "Implement Responsive Design with Hamburger Menu",
+            "description": "Create a responsive design that transforms into a hamburger menu on mobile and tablet devices",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Implement responsive breakpoints using TailwindCSS media queries. Create a hamburger menu icon that appears on mobile/tablet screens. Develop a slide-out or dropdown menu for mobile navigation. Use Framer Motion for smooth animations when opening/closing the mobile menu. Ensure proper touch targets for mobile users. Test across various device widths.",
+            "status": "pending",
+            "testStrategy": "Test responsive behavior across multiple breakpoints (320px, 768px, 1024px, etc.). Verify hamburger menu appears at appropriate screen sizes. Check menu opening/closing animations. Ensure all navigation links are accessible in mobile view."
+          },
+          {
+            "id": 3,
+            "title": "Add Sticky Positioning and Scroll Behavior",
+            "description": "Implement sticky positioning for the navbar and smooth scrolling functionality to page sections",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Add sticky positioning to the navbar that activates on scroll using position: sticky and top: 0. Implement smooth scrolling to page sections using scroll-behavior: smooth CSS property. Create ID-based links that target specific sections of the page. Add subtle background blur or color change to the navbar when it becomes sticky. Ensure the navbar remains accessible at all times.",
+            "status": "pending",
+            "testStrategy": "Test sticky behavior by scrolling the page. Verify smooth scrolling works when clicking navigation links. Check navbar appearance changes correctly when scrolling. Test across different browsers for compatibility."
+          },
+          {
+            "id": 4,
+            "title": "Implement Active Section Highlighting",
+            "description": "Create functionality to highlight the active navigation link based on the current scroll position",
+            "dependencies": [
+              "3.1",
+              "3.3"
+            ],
+            "details": "Implement the Intersection Observer API to track which sections are currently in the viewport. Create a system to highlight the corresponding navigation link when its section is visible. Add appropriate styling for active links using TailwindCSS classes. Handle edge cases like overlapping sections or short sections. Ensure highlighting works correctly when navigating via clicks or scrolling.",
+            "status": "pending",
+            "testStrategy": "Test active highlighting by scrolling through different sections. Verify correct navigation item is highlighted at each section. Check behavior when quickly scrolling through multiple sections. Test edge cases like very short sections or sections that don't fill the viewport."
+          },
+          {
+            "id": 5,
+            "title": "Optimize Performance and Accessibility",
+            "description": "Ensure the navbar is performant, accessible, and works across all modern browsers",
+            "dependencies": [
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4"
+            ],
+            "details": "Optimize animations and transitions for performance using will-change and transform properties. Implement proper ARIA attributes for accessibility (aria-expanded, aria-controls, etc.). Add keyboard navigation support for the menu. Ensure sufficient color contrast for all text elements in both light and dark themes. Test across major browsers (Chrome, Firefox, Safari, Edge). Add appropriate focus states for interactive elements. Implement proper semantic HTML throughout.",
+            "status": "pending",
+            "testStrategy": "Run Lighthouse accessibility audit. Test keyboard navigation through the navbar. Verify screen reader compatibility. Check performance metrics for animations and transitions. Test across multiple browsers and devices. Validate HTML for semantic correctness."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Implement Hero/About Us Section",
+        "description": "Create the main hero section with company introduction, headline, subtext and call-to-action",
+        "details": "1. Design a full-viewport height hero section with:\n   - Bold headline introducing the company\n   - Subtext explaining the company's value proposition\n   - Primary CTA button linking to Contact section\n   - Optional secondary CTA for Services\n2. Add subtle background design elements using TailwindCSS\n3. Implement responsive layout for all device sizes\n4. Add fade-in animation when the page loads\n5. Optimize for both dark and light themes\n6. Ensure text is readable and accessible with proper contrast",
+        "testStrategy": "Test responsive layout across all device sizes. Verify animations work correctly. Check theme compatibility for both dark and light modes. Validate accessibility using Lighthouse or similar tools. Test CTA button functionality.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design Hero Section Layout and Structure",
+            "description": "Create the HTML structure and TailwindCSS styling for the full-viewport hero section with responsive design",
+            "dependencies": [],
+            "details": "1. Set up a full-viewport height container using TailwindCSS (h-screen)\n2. Create a flex or grid layout for content positioning\n3. Implement responsive breakpoints for all device sizes (mobile, tablet, desktop)\n4. Add subtle background design elements using TailwindCSS gradients or patterns\n5. Structure the content areas for headline, subtext, and CTA buttons\n6. Ensure proper spacing and alignment across all viewport sizes",
+            "status": "pending",
+            "testStrategy": "Test responsive layout across multiple device sizes and browsers. Verify the section maintains proper height and spacing on all viewports. Check that background elements render correctly."
+          },
+          {
+            "id": 2,
+            "title": "Implement Content and Typography",
+            "description": "Add the headline, subtext, and call-to-action buttons with proper typography and styling",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "1. Create a bold, attention-grabbing headline introducing the company\n2. Write compelling subtext explaining the value proposition\n3. Style typography using TailwindCSS with appropriate font sizes, weights, and line heights\n4. Implement primary CTA button linking to Contact section\n5. Add optional secondary CTA for Services section\n6. Ensure text is readable with proper contrast ratios for accessibility\n7. Apply consistent font styling according to design system",
+            "status": "pending",
+            "testStrategy": "Verify text readability and contrast ratios using accessibility tools. Test that CTA buttons are properly styled and positioned. Check typography scales appropriately across device sizes."
+          },
+          {
+            "id": 3,
+            "title": "Implement Dark/Light Theme Compatibility",
+            "description": "Ensure the hero section works seamlessly with both dark and light themes",
+            "dependencies": [
+              "4.1",
+              "4.2"
+            ],
+            "details": "1. Define appropriate color variables for both themes\n2. Implement conditional styling using TailwindCSS dark mode class strategy\n3. Test color contrast in both themes to ensure accessibility\n4. Adjust background elements to work with both themes\n5. Ensure CTA buttons have appropriate styling in both themes\n6. Verify text readability in both modes\n7. Implement smooth transitions between themes",
+            "status": "pending",
+            "testStrategy": "Test theme switching to ensure all elements adapt correctly. Verify contrast ratios meet WCAG standards in both themes. Check that background elements and typography render appropriately in each theme."
+          },
+          {
+            "id": 4,
+            "title": "Add Animation Effects",
+            "description": "Implement fade-in and other animations for the hero section using Framer Motion",
+            "dependencies": [
+              "4.1",
+              "4.2",
+              "4.3"
+            ],
+            "details": "1. Set up Framer Motion components for animated elements\n2. Implement staggered fade-in animations for headline, subtext, and CTAs\n3. Add subtle motion effects for background elements\n4. Ensure animations respect user preferences for reduced motion\n5. Optimize animations for performance\n6. Implement proper exit animations if needed\n7. Test animation timing and easing functions for natural feel",
+            "status": "pending",
+            "testStrategy": "Test animations across different browsers and devices. Verify animations trigger correctly on page load. Check that reduced motion preferences are respected. Ensure animations don't cause layout shifts or performance issues."
+          },
+          {
+            "id": 5,
+            "title": "Implement Accessibility and Performance Optimizations",
+            "description": "Ensure the hero section is fully accessible and optimized for performance",
+            "dependencies": [
+              "4.1",
+              "4.2",
+              "4.3",
+              "4.4"
+            ],
+            "details": "1. Add proper semantic HTML structure with appropriate ARIA attributes\n2. Ensure keyboard navigation works for all interactive elements\n3. Verify proper heading hierarchy\n4. Optimize images and background elements for fast loading\n5. Implement proper alt text for any images\n6. Test with screen readers to ensure compatibility\n7. Implement proper focus states for interactive elements\n8. Run Lighthouse audits to identify and fix any accessibility or performance issues",
+            "status": "pending",
+            "testStrategy": "Run accessibility audits using tools like Lighthouse and axe. Test with screen readers and keyboard-only navigation. Verify performance metrics meet targets. Check that all interactive elements are properly accessible."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Build Services Section",
+        "description": "Create a section showcasing the company's services grouped by categories",
+        "details": "1. Design a grid layout for service categories:\n   - Development\n   - Cloud\n   - Security\n   - Emerging Tech (excluding Blockchain/Game Dev)\n   - Digital Growth\n   - QA & Testing\n   - Support\n2. Create service cards with icons, titles, and brief descriptions\n3. Implement responsive grid that adjusts columns based on screen size\n4. Add hover effects for interactive feel\n5. Implement fade-in animation when scrolled into view using Intersection Observer API or Framer Motion\n6. Ensure consistent styling across both themes",
+        "testStrategy": "Test responsive grid layout across all device sizes. Verify fade-in animations trigger correctly on scroll. Test hover effects. Ensure all service categories are displayed correctly. Check theme compatibility.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design Service Category Grid Layout",
+            "description": "Create the foundational grid layout structure for the seven service categories with responsive design",
+            "dependencies": [],
+            "details": "Implement a responsive grid layout using TailwindCSS grid system for the seven service categories (Development, Cloud, Security, Emerging Tech, Digital Growth, QA & Testing, Support). Configure grid-cols utility classes to adjust columns based on screen size (e.g., grid-cols-1 for mobile, grid-cols-2 for tablets, grid-cols-3 for desktop). Set appropriate gap spacing between grid items. Ensure the grid container has proper padding and max-width constraints. Use container queries if supported by the Next.js version being used.",
+            "status": "pending",
+            "testStrategy": "Verify grid layout renders correctly across all breakpoints (mobile, tablet, desktop). Check that columns adjust appropriately when resizing the browser. Ensure consistent spacing between grid items. Test with browser dev tools to simulate different device sizes."
+          },
+          {
+            "id": 2,
+            "title": "Create Service Cards with Icons",
+            "description": "Design and implement individual service cards with icons, titles, and descriptions for each service",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Design service cards with consistent dimensions using TailwindCSS. Include appropriate icons for each service category (use React Icons, Heroicons, or similar library compatible with Next.js). Add title text with proper heading hierarchy (h3 or h4). Write concise service descriptions (2-3 sentences each). Ensure text is properly sized and spaced for readability. Apply consistent padding within cards. Use semantic HTML structure for accessibility.",
+            "status": "pending",
+            "testStrategy": "Verify all icons load correctly. Check text readability at different screen sizes. Ensure consistent card heights and widths. Test with screen readers to verify accessibility. Confirm all service categories have appropriate icons that visually represent the service."
+          },
+          {
+            "id": 3,
+            "title": "Implement Interactive Hover Effects",
+            "description": "Add hover animations and interactive effects to service cards for improved user experience",
+            "dependencies": [
+              "5.2"
+            ],
+            "details": "Implement subtle hover effects using TailwindCSS hover: variants or Framer Motion. Add scale transform effects (e.g., hover:scale-105) with appropriate transition duration. Consider adding subtle shadow changes on hover (hover:shadow-lg). Implement color transitions for text or borders when hovered. Ensure hover effects are consistent across all service cards. Add focus states for keyboard navigation accessibility. Test performance to ensure smooth animations.",
+            "status": "pending",
+            "testStrategy": "Test hover effects across different browsers (Chrome, Firefox, Safari). Verify transitions are smooth and not jarring. Check keyboard focus states work correctly. Ensure hover effects are consistent across all cards. Test on touch devices to verify appropriate behavior."
+          },
+          {
+            "id": 4,
+            "title": "Add Scroll-Triggered Animations",
+            "description": "Implement fade-in animations that trigger when service section scrolls into viewport",
+            "dependencies": [
+              "5.1",
+              "5.2"
+            ],
+            "details": "Use Intersection Observer API or Framer Motion's motion components to detect when elements enter viewport. Implement fade-in animations with appropriate timing and easing. Consider staggered animations for individual service cards. Add subtle transform animations (slide up/in) in addition to opacity changes. Ensure animations only trigger once per page load. Implement fallbacks for browsers that don't support these features. Consider adding a 'prefers-reduced-motion' media query check for accessibility.",
+            "status": "pending",
+            "testStrategy": "Test scroll animations by scrolling up and down the page at different speeds. Verify animations trigger at the appropriate scroll position. Check animations on different devices and browsers. Test with 'prefers-reduced-motion' enabled to ensure proper fallback behavior. Verify performance is not impacted by animations."
+          },
+          {
+            "id": 5,
+            "title": "Ensure Theme Compatibility",
+            "description": "Optimize service section styling for both light and dark themes with consistent visual appearance",
+            "dependencies": [
+              "5.2",
+              "5.3"
+            ],
+            "details": "Implement theme-specific color variables using TailwindCSS dark: variants. Ensure text remains readable in both themes with appropriate contrast ratios. Adjust card backgrounds, borders, and shadows for each theme. Test icon visibility in both themes (consider using different icon colors if needed). Verify hover effects work well in both themes. Use CSS custom properties or Tailwind theme configuration for consistent color application. Ensure smooth transitions when theme is switched.",
+            "status": "pending",
+            "testStrategy": "Toggle between light and dark themes to verify consistent appearance. Check contrast ratios meet WCAG AA standards (minimum 4.5:1 for normal text). Verify all interactive elements are clearly visible in both themes. Test theme switching with animations in progress. Ensure no flickering or visual glitches when theme changes."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Develop Portfolio Section",
+        "description": "Create a grid of project cards showcasing the company's portfolio with hover zoom effects",
+        "details": "1. Design a responsive grid layout for portfolio projects\n2. Create project cards with:\n   - Project image/thumbnail\n   - Project title\n   - Brief description\n   - Technologies used (optional tags)\n3. Implement hover zoom effect using TailwindCSS transform scale\n4. Add subtle transition animations\n5. Implement fade-in animation when scrolled into view\n6. Ensure grid responsively adjusts columns based on screen size\n7. Add placeholder content that can be easily replaced with actual portfolio items",
+        "testStrategy": "Test responsive grid across all device sizes. Verify hover zoom effects work smoothly. Check fade-in animations on scroll. Ensure images load properly and maintain aspect ratio. Test theme compatibility.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design Responsive Grid Layout",
+            "description": "Create a responsive grid layout for portfolio projects using TailwindCSS grid system",
+            "dependencies": [],
+            "details": "Implement a responsive grid layout using TailwindCSS grid classes. Configure grid-cols-1 for mobile, grid-cols-2 for tablet, and grid-cols-3 for desktop. Use gap-4 or gap-6 for spacing between items. Ensure the grid container has proper padding and max-width constraints. Research and implement the latest TailwindCSS grid best practices for 2024.",
+            "status": "pending",
+            "testStrategy": "Test grid responsiveness across multiple breakpoints (320px, 768px, 1024px, 1440px). Verify that grid items align properly and maintain consistent spacing. Check that the grid container respects page margins."
+          },
+          {
+            "id": 2,
+            "title": "Create Project Card Component",
+            "description": "Develop a reusable project card component with image, title, description, and technology tags",
+            "dependencies": [
+              "6.1"
+            ],
+            "details": "Create a TypeScript React component for project cards with proper props typing. Include image container with proper aspect ratio (16:9), project title using heading element, brief description with character limit, and optional technology tags using Tailwind's badge styling. Ensure the component is accessible with proper semantic HTML and ARIA attributes. Use Next.js Image component for optimized image loading.",
+            "status": "pending",
+            "testStrategy": "Test card rendering with various content lengths. Verify image loading and aspect ratio maintenance. Check accessibility using axe or similar tools. Test with and without technology tags to ensure layout flexibility."
+          },
+          {
+            "id": 3,
+            "title": "Implement Hover and Animation Effects",
+            "description": "Add hover zoom effects and fade-in animations using TailwindCSS and Framer Motion",
+            "dependencies": [
+              "6.2"
+            ],
+            "details": "Implement hover zoom effect using TailwindCSS transform scale (scale-105 or scale-110) with transition-transform duration-300. Add subtle box-shadow increase on hover. For fade-in animations, use Framer Motion's latest API (v10+) with the useInView hook for scroll-triggered animations. Configure proper animation variants with staggered children for a cascading effect.",
+            "status": "pending",
+            "testStrategy": "Test hover effects for smoothness across browsers. Verify animations work on scroll in both directions. Check performance metrics to ensure animations don't cause layout shifts or performance issues. Test with reduced motion preferences enabled."
+          },
+          {
+            "id": 4,
+            "title": "Create Portfolio Data Structure and Placeholder Content",
+            "description": "Design a flexible data structure for portfolio items and implement placeholder content",
+            "dependencies": [
+              "6.2"
+            ],
+            "details": "Create a TypeScript interface for portfolio items with properties for image, title, description, technologies, link, etc. Implement a data file with 6-9 placeholder portfolio items using realistic content and free stock images. Structure the data to be easily replaceable with actual portfolio items later. Consider implementing categories or filtering capabilities for future expansion.",
+            "status": "pending",
+            "testStrategy": "Verify all placeholder content renders correctly. Test with various content lengths to ensure layout stability. Check that image placeholders load properly and maintain aspect ratio. Validate the TypeScript interface with sample data."
+          },
+          {
+            "id": 5,
+            "title": "Integrate Portfolio Section with Page Layout",
+            "description": "Connect the portfolio section to the main page layout with proper section heading and spacing",
+            "dependencies": [
+              "6.1",
+              "6.2",
+              "6.3",
+              "6.4"
+            ],
+            "details": "Create a Portfolio section component that integrates with the main page layout. Add a section heading with appropriate typography. Implement proper vertical spacing between the section heading and grid. Add an optional 'View All Projects' button that links to a dedicated portfolio page (to be implemented later). Ensure the section has the correct ID for navbar linking and proper padding for scroll margin when navigating via the navbar.",
+            "status": "pending",
+            "testStrategy": "Test section integration with the overall page layout. Verify proper spacing and alignment. Check navbar linking to the section works correctly with smooth scrolling. Test the section's appearance in both light and dark themes."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Create Technology Tools Section",
+        "description": "Build a grid showcasing the technology stack with logos and labels",
+        "details": "1. Design a responsive grid for technology logos\n2. Include the specified technologies:\n   - React\n   - Next.js\n   - Node.js\n   - Python\n   - PostgreSQL\n   - Docker\n   - Kubernetes\n   - AWS\n   - Azure\n   - GCP\n3. Create consistent-sized cards for each technology with logo and name\n4. Add subtle hover effects\n5. Implement fade-in animation when scrolled into view\n6. Ensure logos are visible in both light and dark themes (use different versions if needed)\n7. Make grid responsive with appropriate spacing",
+        "testStrategy": "Test responsive grid layout across all device sizes. Verify all technology logos display correctly. Check hover effects. Ensure fade-in animations work on scroll. Test visibility in both themes.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design responsive technology grid layout",
+            "description": "Create the responsive grid structure for displaying technology logos across all device sizes",
+            "dependencies": [],
+            "details": "1. Use CSS Grid or Flexbox with TailwindCSS to create a responsive grid layout\n2. Implement appropriate breakpoints for mobile (1 column), tablet (2-3 columns), and desktop (4-5 columns)\n3. Define consistent card sizes and spacing between grid items\n4. Set up container max-width and padding for proper alignment with other page sections\n5. Ensure the grid maintains proper spacing and alignment when resizing",
+            "status": "pending",
+            "testStrategy": "Test grid responsiveness across multiple device sizes (320px, 768px, 1024px, 1440px). Verify grid maintains proper alignment and spacing. Check that cards maintain consistent dimensions across breakpoints."
+          },
+          {
+            "id": 2,
+            "title": "Create technology card component with logo handling",
+            "description": "Develop a reusable card component that displays technology logos with proper light/dark theme support",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "1. Create a TechnologyCard component that accepts logo, name, and optional description props\n2. Implement conditional rendering for light/dark theme logo variants\n3. Add proper image optimization using Next.js Image component with appropriate sizes\n4. Ensure logos maintain proper aspect ratios and consistent dimensions\n5. Add alt text for accessibility\n6. Implement proper error handling for missing logos",
+            "status": "pending",
+            "testStrategy": "Test card rendering with various logo sizes and formats. Verify proper light/dark theme switching. Check image optimization and loading performance. Validate accessibility with screen readers."
+          },
+          {
+            "id": 3,
+            "title": "Implement hover effects and animations",
+            "description": "Add interactive hover effects to technology cards and implement fade-in animations on scroll",
+            "dependencies": [
+              "7.2"
+            ],
+            "details": "1. Use Framer Motion or CSS transitions for smooth hover effects (scale, shadow, etc.)\n2. Implement intersection observer or Framer Motion's scroll animations for fade-in effects\n3. Ensure animations are subtle and professional (avoid excessive movement)\n4. Add staggered animation for grid items appearing sequentially\n5. Respect user preferences for reduced motion using the prefers-reduced-motion media query",
+            "status": "pending",
+            "testStrategy": "Test hover effects across different browsers. Verify fade-in animations trigger correctly on scroll. Check that animations respect reduced motion preferences. Ensure animations don't cause layout shifts or performance issues."
+          },
+          {
+            "id": 4,
+            "title": "Populate grid with technology data",
+            "description": "Create data structure for technology information and populate the grid with all required technologies",
+            "dependencies": [
+              "7.2"
+            ],
+            "details": "1. Create a data file with information for all required technologies (React, Next.js, Node.js, etc.)\n2. Include name, description, logo paths (light/dark variants), and optional links\n3. Implement proper data typing with TypeScript interfaces\n4. Source high-quality SVG logos for each technology\n5. Organize logos in appropriate public directory structure\n6. Add any additional metadata needed for filtering or categorization",
+            "status": "pending",
+            "testStrategy": "Verify all technology data renders correctly. Test with missing or incomplete data to ensure graceful fallbacks. Check that all logos load properly and maintain quality across screen sizes."
+          },
+          {
+            "id": 5,
+            "title": "Integrate section with page layout and test cross-browser compatibility",
+            "description": "Integrate the technology grid section with the main page layout and ensure cross-browser/device compatibility",
+            "dependencies": [
+              "7.1",
+              "7.3",
+              "7.4"
+            ],
+            "details": "1. Add proper section heading and optional description text\n2. Implement proper semantic HTML structure with appropriate ARIA attributes\n3. Test and optimize for cross-browser compatibility (Chrome, Firefox, Safari, Edge)\n4. Ensure the section integrates properly with the page's scroll behavior\n5. Optimize performance by implementing proper code splitting and lazy loading\n6. Add appropriate data-testid attributes for testing",
+            "status": "pending",
+            "testStrategy": "Test section rendering across multiple browsers and devices. Verify proper integration with page navigation. Check accessibility using automated tools (Lighthouse, axe) and screen readers. Measure and optimize performance metrics."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Implement Industries Served Section",
+        "description": "Create a grid showcasing the industries the company serves with appropriate visuals",
+        "details": "1. Design a responsive grid for industry categories\n2. Include the specified industries:\n   - Healthcare\n   - EdTech\n   - FinTech\n   - E-commerce\n   - Real Estate\n   - Logistics\n   - Entertainment\n3. Create visually appealing cards with industry icon/image and name\n4. Add brief description for each industry (optional)\n5. Implement hover effects for interactivity\n6. Add fade-in animation when scrolled into view\n7. Ensure consistent styling across both themes\n8. Make grid responsive with appropriate breakpoints",
+        "testStrategy": "Test responsive grid layout across all device sizes. Verify all industry cards display correctly. Check hover effects. Ensure fade-in animations work on scroll. Test theme compatibility.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design responsive grid layout with industry cards",
+            "description": "Create the foundational grid structure for the industries section with responsive breakpoints",
+            "dependencies": [],
+            "details": "1. Implement a responsive grid using TailwindCSS grid classes (grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4)\n2. Set appropriate gap spacing between cards\n3. Create a reusable IndustryCard component with props for icon, title, and description\n4. Ensure consistent card sizing and alignment\n5. Test layout across all breakpoints (mobile, tablet, desktop)",
+            "status": "pending",
+            "testStrategy": "Verify grid responsiveness across different viewport sizes. Check that cards maintain proper alignment and spacing. Test with different content lengths to ensure consistent appearance."
+          },
+          {
+            "id": 2,
+            "title": "Implement industry content and icons",
+            "description": "Add content for all specified industries with appropriate icons and descriptions",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "1. Research and select appropriate icons for each industry (Healthcare, EdTech, FinTech, E-commerce, Real Estate, Logistics, Entertainment)\n2. Use React Icons or custom SVGs for industry icons\n3. Write concise descriptions (30-50 words) for each industry highlighting company expertise\n4. Create a data structure (array of objects) to store industry information\n5. Implement mapping function to render IndustryCard components from data",
+            "status": "pending",
+            "testStrategy": "Verify all industries are displayed with correct icons and descriptions. Check for text overflow or layout issues with varying content lengths. Ensure icons are properly sized and aligned."
+          },
+          {
+            "id": 3,
+            "title": "Add interactive hover effects",
+            "description": "Implement hover animations and interactive elements for industry cards",
+            "dependencies": [
+              "8.1",
+              "8.2"
+            ],
+            "details": "1. Use TailwindCSS hover classes or Framer Motion for hover effects\n2. Implement subtle scale transformation on hover (transform: scale(1.05))\n3. Add elevation effect with shadow increase on hover\n4. Consider color transitions for background/text on hover\n5. Ensure hover effects are consistent with overall site design\n6. Add focus states for keyboard navigation accessibility",
+            "status": "pending",
+            "testStrategy": "Test hover interactions across different browsers. Verify smooth transitions without layout shifts. Check keyboard focus accessibility. Ensure hover effects work consistently across devices that support hover."
+          },
+          {
+            "id": 4,
+            "title": "Implement scroll-triggered animations",
+            "description": "Add fade-in animations when the industries section scrolls into view",
+            "dependencies": [
+              "8.1",
+              "8.2",
+              "8.3"
+            ],
+            "details": "1. Use Framer Motion's motion components with whileInView prop\n2. Configure staggered animation for cards (each card appears with slight delay)\n3. Set appropriate viewport threshold for animation trigger\n4. Add fallback for users with reduced motion preferences\n5. Optimize animation performance with will-change CSS property\n6. Ensure animations only trigger once per page load",
+            "status": "pending",
+            "testStrategy": "Test animation timing and smoothness across different devices and browsers. Verify animations respect reduced motion preferences. Check that animations trigger at the correct scroll position."
+          },
+          {
+            "id": 5,
+            "title": "Ensure theme compatibility and final polish",
+            "description": "Finalize the industries section with proper theme support and code optimization",
+            "dependencies": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "8.4"
+            ],
+            "details": "1. Test and adjust styling for both light and dark themes\n2. Ensure proper contrast ratios for accessibility in both themes\n3. Optimize component rendering with React.memo or useMemo where appropriate\n4. Add proper aria attributes for accessibility\n5. Document component props and usage\n6. Perform final responsive testing across all breakpoints\n7. Optimize any images used for industry cards",
+            "status": "pending",
+            "testStrategy": "Verify section appearance in both light and dark themes. Run accessibility checks using tools like Lighthouse. Test performance with React DevTools. Ensure all interactive elements are properly accessible with keyboard and screen readers."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Build Contact Form Section",
+        "description": "Create a contact form with validation that will send data to Google Sheets",
+        "details": "1. Design a responsive contact form with fields for:\n   - Name (required)\n   - Email (required, with validation)\n   - Message (required)\n   - Submit button\n2. Implement form validation using React state or a form library\n3. Create loading and success/error states for form submission\n4. Style form consistently with the site's matte theme\n5. Ensure form is accessible with proper labels and aria attributes\n6. Add fade-in animation when scrolled into view\n7. Make form responsive for all device sizes\n8. Prepare form to connect with the API endpoint (to be implemented in task 10)",
+        "testStrategy": "Test form validation for all fields. Verify responsive layout across device sizes. Test accessibility using keyboard navigation. Ensure form states (loading, success, error) display correctly. Test theme compatibility.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          3
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design responsive contact form layout",
+            "description": "Create the HTML structure and responsive layout for the contact form with all required fields",
+            "dependencies": [],
+            "details": "Create a responsive form component with fields for name, email, and message. Implement proper HTML structure using semantic elements. Style the form using TailwindCSS to match the site's matte theme. Ensure the form is responsive across all device sizes using appropriate flex/grid layouts and breakpoints. Include a submit button with appropriate styling.",
+            "status": "pending",
+            "testStrategy": "Test responsive layout across multiple device sizes (mobile, tablet, desktop). Verify form appearance matches the site's theme. Check that all form elements are properly aligned and spaced."
+          },
+          {
+            "id": 2,
+            "title": "Implement form validation and state management",
+            "description": "Add client-side validation for all form fields and manage form state",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Implement form validation using React Hook Form or Formik. Add validation rules for required fields, email format validation, and minimum length requirements. Create React state to track form values, validation errors, and submission status. Implement real-time validation feedback with appropriate error messages. Ensure validation is triggered on blur and on submission.",
+            "status": "pending",
+            "testStrategy": "Test validation for all required fields. Verify email format validation works correctly. Test error message display for various validation scenarios. Check that validation state updates correctly as users type."
+          },
+          {
+            "id": 3,
+            "title": "Create form submission states and animations",
+            "description": "Implement loading, success, and error states for form submission with appropriate animations",
+            "dependencies": [
+              "9.2"
+            ],
+            "details": "Create loading state with spinner or progress indicator during form submission. Implement success state with confirmation message after successful submission. Add error state with appropriate error message for failed submissions. Use Framer Motion to implement fade-in animation when the form section scrolls into view. Add subtle transition animations for form state changes.",
+            "status": "pending",
+            "testStrategy": "Test loading indicator appears during submission. Verify success and error states display correctly. Test animations work smoothly across different browsers. Check that fade-in animation triggers correctly on scroll."
+          },
+          {
+            "id": 4,
+            "title": "Ensure form accessibility and keyboard navigation",
+            "description": "Make the form fully accessible with proper ARIA attributes, focus management, and keyboard navigation",
+            "dependencies": [
+              "9.1",
+              "9.2"
+            ],
+            "details": "Add proper labels and ARIA attributes to all form elements. Implement focus management for form fields and error messages. Ensure keyboard navigation works correctly throughout the form. Add appropriate tab order for all interactive elements. Implement error announcements for screen readers. Test with various assistive technologies to ensure compatibility.",
+            "status": "pending",
+            "testStrategy": "Test keyboard navigation through all form elements. Verify screen readers can properly announce form fields and errors. Check focus visibility and management. Test with accessibility tools like Lighthouse or axe."
+          },
+          {
+            "id": 5,
+            "title": "Prepare form API integration for Google Sheets",
+            "description": "Set up the form submission handler to connect with the Google Sheets API endpoint",
+            "dependencies": [
+              "9.2",
+              "9.3"
+            ],
+            "details": "Create a submission handler function that will connect to the Google Sheets API endpoint (to be implemented in task 10). Structure the form data in the format required by the API. Implement proper error handling for API responses. Add appropriate security measures like CSRF protection and rate limiting. Document the API integration requirements for task 10.",
+            "status": "pending",
+            "testStrategy": "Test the submission handler with mock API responses. Verify proper error handling for various API response scenarios. Check that form data is correctly formatted for the API. Test security measures like CSRF protection."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Implement Google Sheets Integration",
+        "description": "Create Next.js API route and Google Apps Script to store contact form submissions in Google Sheets",
+        "details": "1. Create a Google Sheet with columns for Name, Email, Message, and Timestamp\n2. Write Google Apps Script Web App that:\n   - Accepts POST requests with form data\n   - Validates incoming data\n   - Appends data to the Google Sheet\n   - Returns success/error response\n   - Implements CORS for security\n3. Deploy the Apps Script as a web app with appropriate access settings\n4. Create a Next.js API route at `/api/contact` that:\n   - Accepts POST requests from the contact form\n   - Validates form data on the server side\n   - Forwards the request to the Google Apps Script URL\n   - Handles errors and returns appropriate responses\n5. Connect the contact form to this API endpoint\n6. Implement proper error handling and rate limiting",
+        "testStrategy": "Test the API route with valid and invalid form data. Verify data is correctly stored in Google Sheets. Test error handling for various scenarios (network issues, validation failures). Check rate limiting functionality. Test end-to-end form submission flow.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          9
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create and Configure Google Sheet",
+            "description": "Set up a Google Sheet with appropriate columns and prepare it for integration",
+            "dependencies": [],
+            "details": "Create a new Google Sheet with columns for Name, Email, Message, and Timestamp. Set appropriate data formats for each column. Configure sharing settings to allow the Apps Script to access and modify the sheet. Document the Sheet ID and range information for use in the Apps Script. Create a test record to verify column structure.",
+            "status": "pending",
+            "testStrategy": "Verify sheet structure and accessibility. Confirm column formats are appropriate for the expected data types. Test sheet permissions by accessing through different accounts."
+          },
+          {
+            "id": 2,
+            "title": "Develop Google Apps Script Web App",
+            "description": "Write and deploy a Google Apps Script that handles form submissions and stores data in the Google Sheet",
+            "dependencies": [
+              "10.1"
+            ],
+            "details": "Create a new Google Apps Script project connected to the sheet. Implement doPost() function to handle POST requests with JSON data. Add validation logic for required fields (name, email, message). Write function to append validated data to the Google Sheet with current timestamp. Implement proper error handling with meaningful response messages. Set up CORS headers to allow requests only from your domain. Add logging for debugging and monitoring purposes.",
+            "status": "pending",
+            "testStrategy": "Test the script with various payloads including valid data, missing fields, and malformed requests. Verify CORS settings by attempting requests from authorized and unauthorized origins. Check error handling by sending invalid data formats."
+          },
+          {
+            "id": 3,
+            "title": "Deploy Apps Script as Web App",
+            "description": "Configure and deploy the Google Apps Script as a secure web service",
+            "dependencies": [
+              "10.2"
+            ],
+            "details": "Deploy the Apps Script as a web app with 'Execute as: Me' and 'Who has access: Anyone' settings. Save and document the deployment URL for use in the Next.js API. Set up version control for the script to track changes. Configure appropriate execution timeouts and quotas based on expected usage. Test the deployed endpoint using tools like Postman or cURL to ensure it's accessible and functioning correctly.",
+            "status": "pending",
+            "testStrategy": "Verify the web app is accessible via its URL. Test authentication and authorization settings. Confirm the deployed version matches the latest code changes. Test with actual HTTP requests to ensure proper functionality in the deployed environment."
+          },
+          {
+            "id": 4,
+            "title": "Create Next.js API Route",
+            "description": "Implement a server-side API route in Next.js that validates and forwards form submissions to Google Apps Script",
+            "dependencies": [
+              "10.3"
+            ],
+            "details": "Create a new API route at /api/contact using Next.js API routes. Implement request validation using a library like zod or yup for type safety. Set up environment variables for the Google Apps Script URL. Create a handler function that validates incoming form data, forwards it to the Google Apps Script, and handles the response. Implement proper error handling for network issues, validation failures, and unexpected responses. Add rate limiting using libraries like next-api-rate-limit to prevent abuse.",
+            "status": "pending",
+            "testStrategy": "Test the API route with valid and invalid form submissions. Verify validation logic correctly identifies and reports issues. Test error handling by simulating network failures and invalid responses. Confirm rate limiting functionality by sending multiple requests in quick succession."
+          },
+          {
+            "id": 5,
+            "title": "Connect Contact Form to API and Test End-to-End Flow",
+            "description": "Integrate the contact form with the API endpoint and perform comprehensive testing",
+            "dependencies": [
+              "10.4"
+            ],
+            "details": "Update the existing contact form component to submit data to the new /api/contact endpoint. Add client-side form state management to handle loading, success, and error states. Implement user feedback for form submission status (loading indicators, success messages, error notifications). Add client-side validation that complements server-side validation. Test the complete flow from form submission to data storage in Google Sheets. Document the integration process and any configuration details for future reference.",
+            "status": "pending",
+            "testStrategy": "Perform end-to-end testing of the complete flow from form submission to data storage. Test with various form inputs including edge cases. Verify user feedback for different submission states. Check form accessibility and usability. Test the integration across different browsers and devices."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Implement Scroll Animations",
+        "description": "Add fade-in animations for all sections when they are scrolled into view",
+        "details": "1. Choose between Framer Motion or Intersection Observer API for scroll animations\n2. If using Intersection Observer:\n   - Create a custom hook `useInView` that detects when elements enter viewport\n   - Apply CSS classes conditionally based on visibility\n3. If using Framer Motion:\n   - Implement `motion` components with `whileInView` animations\n4. Apply consistent fade-in animations to all main sections:\n   - Hero/About\n   - Services\n   - Portfolio\n   - Technology Tools\n   - Industries\n   - Contact\n5. Add subtle staggered animations for grid items within sections\n6. Ensure animations are subtle and professional, not distracting\n7. Optimize animations for performance",
+        "testStrategy": "Test animations across different devices and browsers. Verify animations trigger at the correct scroll positions. Check for any performance issues. Ensure animations work with both light and dark themes. Test with reduced motion preferences enabled.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Research and select animation library",
+            "description": "Evaluate Framer Motion and Intersection Observer API to determine the best approach for implementing scroll animations",
+            "dependencies": [],
+            "details": "Compare Framer Motion (v10+) and Intersection Observer API for performance, browser compatibility, and ease of implementation. Consider bundle size impact, animation capabilities, and integration with Next.js and TypeScript. Document findings and make a recommendation based on project requirements. Check compatibility with latest Next.js version (14+) and TailwindCSS (v3.3+).",
+            "status": "pending",
+            "testStrategy": "Create simple proof-of-concept implementations with both approaches and measure performance metrics. Test on various devices and browsers to ensure compatibility."
+          },
+          {
+            "id": 2,
+            "title": "Create reusable animation components/hooks",
+            "description": "Develop reusable animation components or hooks based on the selected animation approach",
+            "dependencies": [
+              "11.1"
+            ],
+            "details": "If using Framer Motion: Create reusable motion components with configurable animation properties. If using Intersection Observer: Develop a custom `useInView` hook that detects when elements enter the viewport and returns visibility state. Ensure TypeScript type safety and proper documentation. Implement options for animation duration, delay, and easing functions.",
+            "status": "pending",
+            "testStrategy": "Test the reusable components/hooks with various configuration options. Verify they work correctly across different viewport sizes and scroll behaviors."
+          },
+          {
+            "id": 3,
+            "title": "Implement section fade-in animations",
+            "description": "Apply consistent fade-in animations to all main sections when they enter the viewport",
+            "dependencies": [
+              "11.2"
+            ],
+            "details": "Implement fade-in animations for all main sections (Hero/About, Services, Portfolio, Technology Tools, Industries, Contact). Ensure animations are subtle and professional. Use a consistent animation pattern across sections while allowing for minor variations where appropriate. Optimize for both light and dark themes.",
+            "status": "pending",
+            "testStrategy": "Test animations on all main sections across different devices and browsers. Verify animations trigger at the correct scroll positions. Check for visual consistency across sections."
+          },
+          {
+            "id": 4,
+            "title": "Implement staggered animations for grid items",
+            "description": "Add subtle staggered animations for grid items within sections to create a cascading effect",
+            "dependencies": [
+              "11.2",
+              "11.3"
+            ],
+            "details": "Implement staggered animations for grid items in the Services, Portfolio, Technology Tools, and Industries sections. Configure appropriate delay between each item's animation. Ensure the staggered effect is subtle and enhances rather than distracts from the content. Implement responsive behavior that adjusts stagger timing based on viewport size.",
+            "status": "pending",
+            "testStrategy": "Test staggered animations with different grid layouts and item counts. Verify the animations look natural and professional. Check performance on lower-end devices."
+          },
+          {
+            "id": 5,
+            "title": "Optimize animations for performance and accessibility",
+            "description": "Ensure animations are performant across devices and respect user accessibility preferences",
+            "dependencies": [
+              "11.3",
+              "11.4"
+            ],
+            "details": "Optimize animations to prevent layout shifts and maintain 60fps. Implement `prefers-reduced-motion` media query support to disable or simplify animations for users who prefer reduced motion. Use hardware-accelerated properties (transform, opacity) instead of properties that trigger repaints. Test and optimize for mobile devices. Ensure animations don't interfere with page content accessibility.",
+            "status": "pending",
+            "testStrategy": "Measure performance using Chrome DevTools Performance panel. Test with 'prefers-reduced-motion' enabled. Verify animations don't cause layout shifts using Core Web Vitals metrics. Test on low-end mobile devices to ensure smooth performance."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Testing and Deployment",
+        "description": "Perform comprehensive testing and deploy the website to Vercel",
+        "details": "1. Perform comprehensive testing:\n   - Responsive design across all breakpoints (mobile, tablet, desktop)\n   - Cross-browser compatibility (Chrome, Firefox, Safari, Edge)\n   - Performance optimization using Lighthouse\n   - Accessibility testing\n   - Form submission and error handling\n   - Theme toggle functionality\n   - Smooth scrolling and animations\n2. Set up Vercel deployment:\n   - Create Vercel account if needed\n   - Connect GitHub repository to Vercel\n   - Configure environment variables in Vercel dashboard\n   - Set up proper build settings\n3. Deploy to Vercel's free plan\n4. Perform post-deployment testing\n5. Set up proper error monitoring\n6. Document any known issues or limitations",
+        "testStrategy": "Conduct full site testing on deployed version. Run Lighthouse audits for performance, accessibility, best practices, and SEO. Test contact form submissions end-to-end. Verify all features work correctly in the production environment. Test on multiple real devices if possible.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Responsive and Cross-Browser Testing",
+            "description": "Perform comprehensive testing for responsive design across all breakpoints and cross-browser compatibility",
+            "dependencies": [],
+            "details": "Test responsive design on mobile (320px-428px), tablet (768px-1024px), and desktop (1200px+) breakpoints. Verify layout, content flow, and functionality in Chrome, Firefox, Safari, and Edge browsers. Document any inconsistencies or issues found. Create a testing checklist to ensure all UI components are verified across each breakpoint and browser. Use browser developer tools and real devices when possible.",
+            "status": "pending",
+            "testStrategy": "Use BrowserStack or similar tools to test on multiple real device/browser combinations. Create a test matrix documenting results for each breakpoint/browser combination. Take screenshots for documentation. Verify all interactive elements function correctly across all environments."
+          },
+          {
+            "id": 2,
+            "title": "Performance and Accessibility Testing",
+            "description": "Conduct performance optimization using Lighthouse and perform accessibility testing",
+            "dependencies": [
+              "12.1"
+            ],
+            "details": "Run Lighthouse audits for performance, accessibility, best practices, and SEO. Aim for scores of 90+ in all categories. Fix critical performance issues like render-blocking resources, excessive DOM size, or unoptimized images. Ensure accessibility compliance with WCAG 2.1 AA standards, including proper contrast ratios, semantic HTML, ARIA attributes where needed, and keyboard navigation. Test theme toggle functionality and smooth scrolling/animations for performance impact.",
+            "status": "pending",
+            "testStrategy": "Use Lighthouse in Chrome DevTools and PageSpeed Insights for performance metrics. Use axe DevTools for accessibility testing. Document baseline scores and improvements made. Test with screen readers (NVDA, VoiceOver) to verify accessibility. Verify reduced motion preferences are respected."
+          },
+          {
+            "id": 3,
+            "title": "Form and Functionality Testing",
+            "description": "Test form submission, error handling, and all interactive functionality",
+            "dependencies": [
+              "12.1",
+              "12.2"
+            ],
+            "details": "Test all form validations and submissions, including error states and success messages. Verify that form data is properly processed and stored/sent. Test theme toggle functionality in all sections to ensure proper color transitions and no visual glitches. Verify smooth scrolling behavior and animations work correctly. Test all interactive elements including navigation, buttons, links, and any custom components. Ensure all functionality works with keyboard navigation.",
+            "status": "pending",
+            "testStrategy": "Create test cases for all form fields with valid and invalid inputs. Test form submission with network throttling enabled. Verify error messages are clear and accessible. Test theme toggle multiple times in different sequences. Document any edge cases or issues found."
+          },
+          {
+            "id": 4,
+            "title": "Vercel Setup and Deployment",
+            "description": "Set up Vercel account, connect repository, and deploy the website",
+            "dependencies": [
+              "12.1",
+              "12.2",
+              "12.3"
+            ],
+            "details": "Create or access Vercel account. Connect GitHub repository to Vercel. Configure environment variables in Vercel dashboard including any API keys or service credentials. Set up proper build settings with Next.js optimizations enabled. Configure custom domain if applicable. Deploy to Vercel's free plan with production branch. Set up preview deployments for pull requests if needed. Document deployment process for future reference.",
+            "status": "pending",
+            "testStrategy": "Verify build completes successfully without errors. Check deployment logs for any warnings. Test the deployed site immediately after deployment to verify it matches local development environment. Confirm environment variables are working correctly in production."
+          },
+          {
+            "id": 5,
+            "title": "Post-Deployment Testing and Monitoring",
+            "description": "Perform post-deployment testing and set up error monitoring",
+            "dependencies": [
+              "12.4"
+            ],
+            "details": "Conduct full site testing on the deployed version to ensure all features work in production. Set up error monitoring using Vercel Analytics or a third-party service like Sentry. Configure alerts for critical errors. Document any known issues or limitations in a README or separate documentation file. Create a post-deployment checklist for future updates. Verify analytics tracking is working if implemented. Test site performance on actual network conditions.",
+            "status": "pending",
+            "testStrategy": "Run Lighthouse audits on the production site. Test all critical user flows on the live site. Verify contact form submissions work end-to-end in production. Test on multiple real devices if possible. Simulate user sessions to catch any production-specific issues. Document any differences between development and production environments."
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-09-20T09:18:13.725Z",
+      "updated": "2025-09-20T09:39:17.376Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
