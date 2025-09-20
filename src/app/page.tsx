@@ -6,6 +6,7 @@ import { ServicesSection } from '@/components/sections/ServicesSection'
 import { PortfolioSection } from '@/components/sections/PortfolioSection'
 import { TechnologiesSection } from '@/components/sections/TechnologiesSection'
 import { IndustriesSection } from '@/components/sections/IndustriesSection'
+import { CONTACT_INFO } from '@/lib/constants'
 
 export default function Home() {
   return (
@@ -67,7 +68,31 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-medium text-foreground">Email</h4>
-                        <p className="text-muted-foreground">hello@xunotech.com</p>
+                        <a 
+                          href={`mailto:${CONTACT_INFO.email}`}
+                          className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                        >
+                          {CONTACT_INFO.email}
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 bg-primary/10 rounded flex items-center justify-center">
+                          <svg className="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-medium text-foreground">Phone</h4>
+                        <a 
+                          href={`tel:${CONTACT_INFO.phone}`}
+                          className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                        >
+                          {CONTACT_INFO.phone}
+                        </a>
                       </div>
                     </div>
 
@@ -81,7 +106,7 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-medium text-foreground">Response Time</h4>
-                        <p className="text-muted-foreground">Within 24 hours</p>
+                        <p className="text-muted-foreground">{CONTACT_INFO.responseTime}</p>
                       </div>
                     </div>
 
@@ -96,7 +121,7 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-medium text-foreground">Location</h4>
-                        <p className="text-muted-foreground">Remote & On-site</p>
+                        <p className="text-muted-foreground">{CONTACT_INFO.location}</p>
                       </div>
                     </div>
                   </div>

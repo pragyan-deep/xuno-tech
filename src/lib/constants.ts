@@ -1,5 +1,13 @@
 import { getSiteUrl } from './env'
 
+// Contact Information
+export const CONTACT_INFO = {
+  email: 'xunotech@gmail.com',
+  phone: '8700227245',
+  responseTime: 'Within 24 hours',
+  location: 'Remote & On-site',
+} as const
+
 // Site Configuration
 export const SITE_CONFIG = {
   name: 'Xuno Tech',

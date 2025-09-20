@@ -55,6 +55,21 @@ const technologies = [
     color: 'from-blue-600 to-blue-800',
     uses: ['Type Safety', 'Large Applications', 'Team Development', 'Code Quality']
   },
+  {
+    id: 'angular',
+    name: 'Angular',
+    category: 'Frontend',
+    description: 'Full-featured framework for building dynamic web applications',
+    proficiency: 85,
+    experienceYears: 3,
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9.93 12.645h4.134L12 9.64l-2.07 3.005zm.326-9.569L12 0l1.744 3.076L23.23 5.15 22.35 7.58l-7.845 13.42H12l-2.505 0L1.65 7.58.77 5.15l9.486-2.074z"/>
+      </svg>
+    ),
+    color: 'from-red-500 to-red-700',
+    uses: ['Enterprise Apps', 'SPAs', 'Progressive Web Apps', 'Component Architecture']
+  },
   
   // Backend Technologies
   {
@@ -73,19 +88,19 @@ const technologies = [
     uses: ['REST APIs', 'GraphQL', 'Microservices', 'Real-time Apps']
   },
   {
-    id: 'python',
-    name: 'Python',
+    id: 'postgresql',
+    name: 'PostgreSQL',
     category: 'Backend',
-    description: 'High-level programming language with extensive libraries',
-    proficiency: 87,
-    experienceYears: 3,
+    description: 'Advanced open source relational database with powerful features',
+    proficiency: 88,
+    experienceYears: 4,
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+        <path d="M12 3C16.97 3 21 4.238 21 5.774V6.77C21 8.305 16.97 9.544 12 9.544S3 8.305 3 6.77V5.774C3 4.238 7.03 3 12 3ZM3 8.737C3 10.272 7.03 11.511 12 11.511S21 10.272 21 8.737V9.733C21 11.268 16.97 12.507 12 12.507S3 11.268 3 9.733V8.737ZM3 11.7C3 13.235 7.03 14.474 12 14.474S21 13.235 21 11.7V12.696C21 14.231 16.97 15.47 12 15.47S3 14.231 3 12.696V11.7ZM3 14.663C3 16.198 7.03 17.437 12 17.437S21 16.198 21 14.663V15.659C21 17.194 16.97 18.433 12 18.433S3 17.194 3 15.659V14.663ZM3 17.626C3 19.161 7.03 20.4 12 20.4S21 19.161 21 17.626V18.622C21 20.157 16.97 21.396 12 21.396S3 20.157 3 18.622V17.626Z"/>
       </svg>
     ),
-    color: 'from-yellow-400 to-blue-500',
-    uses: ['AI/ML', 'Data Analysis', 'Web APIs', 'Automation']
+    color: 'from-blue-500 to-blue-700',
+    uses: ['Relational Data', 'ACID Transactions', 'Advanced Queries', 'Data Integrity']
   },
   
   // Cloud & DevOps
@@ -118,38 +133,6 @@ const technologies = [
     ),
     color: 'from-blue-400 to-blue-600',
     uses: ['Containerization', 'Microservices', 'Development Environment', 'Deployment']
-  },
-  
-  // AI/ML Technologies
-  {
-    id: 'tensorflow',
-    name: 'TensorFlow',
-    category: 'AI/ML',
-    description: 'End-to-end open source platform for machine learning',
-    proficiency: 78,
-    experienceYears: 2,
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564c.015-1.781.015-3.893.015-5.311zm21.708 5.311l-3.959-2.378c-.015-1.781-.015-3.893-.015-5.311L9.78 9.185v4.956l4.095 2.378c.015-1.781.015-3.893.015-5.311l6.168 3.564zM9.78 24l4.095-2.378V7.603l6.168 3.564c-.015-1.781-.015-3.893-.015-5.311L9.78 12.167z"/>
-      </svg>
-    ),
-    color: 'from-orange-500 to-red-500',
-    uses: ['Deep Learning', 'Neural Networks', 'Computer Vision', 'NLP']
-  },
-  {
-    id: 'pytorch',
-    name: 'PyTorch',
-    category: 'AI/ML',
-    description: 'Open source machine learning framework based on the Torch library',
-    proficiency: 75,
-    experienceYears: 2,
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.005 0L4.952 7.053c-2.756 2.756-2.756 7.237 0 9.993s7.237 2.756 9.993 0c2.756-2.756 2.756-7.237 0-9.993L12.005 4.109V0zm-.5 4.109v2.946l-.9-.9c-1.798-1.798-4.713-1.798-6.511 0s-1.798 4.713 0 6.511 4.713 1.798 6.511 0l2.4-2.4V4.109z"/>
-      </svg>
-    ),
-    color: 'from-red-500 to-orange-500',
-    uses: ['Research', 'Prototyping', 'Computer Vision', 'Dynamic Computation']
   },
   
   // Design Tools
@@ -187,7 +170,7 @@ const technologies = [
   }
 ]
 
-const categories = ['All', 'Frontend', 'Backend', 'Cloud & DevOps', 'AI/ML', 'Design', 'Mobile']
+const categories = ['All', 'Frontend', 'Backend', 'Cloud & DevOps', 'Design', 'Mobile']
 
 export function TechnologiesSection({ className }: TechnologiesSectionProps) {
   const [activeCategory, setActiveCategory] = useState('All')
