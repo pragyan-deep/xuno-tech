@@ -93,6 +93,7 @@ export default function RootLayout({
           suppressHydrationWarning
         />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#1d4ed8" />
         <meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1d4ed8" media="(prefers-color-scheme: dark)" />
         {/* Favicon configuration */}
@@ -102,7 +103,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.className} antialiased min-h-screen`}>
-        <ThemeProvider defaultTheme="system" storageKey="xuno-tech-theme">
+        <ThemeProvider defaultTheme="dark" storageKey="xuno-tech-theme">
           <div id="root" className="relative">
             <Navbar />
             <main role="main">

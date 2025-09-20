@@ -4,8 +4,8 @@
   "description": "Professional technology services including development, cloud solutions, security, and digital growth services.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#0a0a0a",
+  "theme_color": "#1d4ed8",
   "orientation": "portrait-primary",
   "icons": [
     {
